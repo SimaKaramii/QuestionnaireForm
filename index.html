@@ -9,7 +9,25 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<div class="container">
+    <div class="box info-box show">
+        <h1>wellcome to my Questionnaire Forms</h1>
+        <div class="input-group">
+            <input type="text" id="name">
+            <label for="name">Name<span>*</span></label>
+        </div>
+        <div class="input-group">
+            <input type="text" id="email">
+            <label for="email">Email<span>*</span></label>
+        </div>
+        <p class="info-text"></p>
+        <div class="input-button">
+            <input type="button" value="Start" onclick="Start()">
+        </div>
 
+    </div>
+    <div class="box question-box hide"></div>
+</div>
 <script src="js/script.js"></script>
 </body>
 </html>
