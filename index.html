@@ -10,7 +10,7 @@
 </head>
 <body>
 <div class="container">
-    <div class="box info-box show">
+    <div class="box info-box">
         <h1>wellcome to my Questionnaire Forms</h1>
         <div class="input-group">
             <input type="text" id="name">
@@ -22,11 +22,34 @@
         </div>
         <p class="info-text"></p>
         <div class="input-button">
-            <input type="button" value="Start" onclick="Start()">
+            <input type="button" value="Start" id="start">
+        </div>
+    </div>
+    <div class="box question-box">
+        <div class="info-user">
+            <h3>Dear <span id="info-user-name"></span></h3>
+            <div><span id="current_questions"></span> of <span id="number-of-question"></span></div>
+        </div>
+        <div>
+            <p class="questions-text"></p>
+            <textarea class="questions-answer" rows="8"></textarea>
         </div>
 
+        <div class="info-user">
+            <a class="btn" id="Previous">Previous</a>
+            <a class="btn" id="Next">Next</a>
+            <input type="button" value="Submit" id="Submit">
+        </div>
+
+
+
     </div>
-    <div class="box question-box hide"></div>
+    <div id="result">
+        <div class="btn-group">
+            <input type="button" value="Start" id="start-again">
+        </div>
+    </div>
+
 </div>
 <script src="js/script.js"></script>
 </body>

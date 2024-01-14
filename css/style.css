@@ -44,9 +44,7 @@ body{
         align-items: flex-start;
     }
 }
-
-
-.box{
+.box , #result{
     border: 3px solid #0e137d;
     max-width: 650px;
     width: 100%;
@@ -61,53 +59,72 @@ h1{
     font-size: 30px;
     text-shadow: 1px 1px 1px #767a10;
 }
+h2{
+    color: #8a7b23;
+    font-size: 22px;
+}
+h3 , .info-user {
+    color: #0e137d;
+    font-size: 18px;
+    margin: 0;
+}
 label{
-    font-size: 13px;
+    font-size: 14px;
     display: block;
     color: #0e137d;
 }
-.input-group{
-    display: flex;
-    flex-direction: column-reverse;
-}
-.input-group label span{
-    color: darkred;
-}
-input[type="text"]{
+input[type="text"] , .questions-answer{
     padding: 0.5rem 1rem;
-    border-radius: 6px;
+    border-radius: 2px 17px;
     transition: all 1s;
     display: block;
-    margin: 0 0 1rem;
+    margin: 0.5rem 0 1rem;
     border: 2px solid #0e137d;
     outline: none;
     width: -webkit-fill-available;
 }
-input[type="text"]:active , input[type="text"]:focus{
+input[type="text"]:active , input[type="text"]:focus , .questions-answer:focus{
+    border-radius: 17px 2px;
     transition: all 1s;
     border: 2px solid #767a10;
 }
-input[type="text"]:active + label, input[type="text"]:focus + label{
+input[type="text"]:active > label, input[type="text"]:focus > label{
     color: #767a10;
 }
-.input-button{
-    text-align: end;
+.info-user{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
-input[type="button"]{
+.btn-group{
+    text-align: right;
+    text-align: -webkit-right;
+}
+.btn-group input[type="button"] , #Submit , #start-again{
+    padding: 0.5rem 1.5rem;
     background: #0e137d;
     color: white;
-    border: none;
-    width: 77px;
-    height: 32px;
-    border-radius: 6px;
-    font-size: 13px;
+    border: 1px solid;
+    border-radius: 2px 11px;
+    cursor: pointer;
+    transition: all  1s;
 }
-.info-text{
-    margin: 0;
-    font-size: 11px;
-    color: red;
-    height: 11px;
+.btn-group input[type="button"]:hover , #Submit:hover , #start-again:hover{
+    border-radius: 11px 2px;
 }
-.question-box{
+.question-box , #result{
+    display: none;
+}
+.btn{
+    color: #0e137d;
+    font-size:14px;
+    cursor: pointer;
+}
+#result div , .questions-text{
+    color: #0e137d;
+    font-size:14px;
+    margin-bottom: 1rem;
+}
+#start-again{
     display: none;
 }
