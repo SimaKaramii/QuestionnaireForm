@@ -1,17 +1,17 @@
 const questions = [
     {
         id: 1,
-        question: "How many days makes a week ? ",
+        question: "Can you tell me where you live? ",
         response: "",
 
     },    {
         id: 2,
-        question: "what is your favorite color? ",
+        question: "Do you work or study? ",
         response: "",
 
     },    {
         id: 3,
-        question: "what is your favorite days? ",
+        question: "What do you do in your free time? ",
         response: "",
 
     },
@@ -40,17 +40,16 @@ function showElements(input){
 
 function control(currentQuestion){
     if(currentQuestion == 0){
-        hideElements(previous);
-        hideElements(Submit);
-        showElements(next);
+        previous.classList.add("DisableInput")
     }else if(currentQuestion == last-1){
-        showElements(previous);
-        showElements(Submit);
-        hideElements(next);
+        next.classList.add("DisableInput")
+        hideElements(next)
+        showElements(Submit)
     }else{
-        showElements(previous);
-        showElements(next);
-        hideElements(Submit);
+        next.classList.remove("DisableInput")
+        previous.classList.remove("DisableInput")
+        hideElements(Submit)
+        showElements(next)
     }
 }
 
@@ -66,15 +65,12 @@ function assignQuestion(currentQuestion){
 }
 
 function start(){
-    if(nameInput.value.replace(/^\s+|\s+$/g, "").length != 0 ){
-        hideElements(box);
-        showElements(questionBox);
-        assignQuestion(0);
-        nameForm.textContent = nameInput.value
-        numberOfQuestion(0);
-    }else{
-        nameInput.style.border = "1px solid red";
-    }
+    hideElements(box);
+    showElements(questionBox);
+    assignQuestion(0);
+    nameForm.textContent = nameInput.value
+    numberOfQuestion(0);
+    hideElements(Submit)
 }
 
 function numberOfQuestion(currentQuestion){
@@ -87,19 +83,28 @@ document.getElementById("start").addEventListener("click", function(){
 })
 
 previous.addEventListener("click", function(){
-    questions[current].response = questionBoxAnswer.value;
-    current -=1;
-    assignQuestion(current);
+    if(!this.classList.contains(("DisableInput"))){
+        questions[current].response = questionBoxAnswer.value;
+        current -=1;
+        assignQuestion(current);
+    }
 })
 
 next.addEventListener("click", function(){
-    questions[current].response = questionBoxAnswer.value;
-    current +=1;
-    assignQuestion(current);
-    // questionBoxAnswer.value;
+    if(!this.classList.contains(("DisableInput"))){
+        questions[current].response = questionBoxAnswer.value;
+        current +=1;
+        assignQuestion(current);
+    }
 })
 
 Submit.addEventListener("click", function(){
+    questions[current].response = questionBoxAnswer.value;
+    showElements(document.querySelector(".confirm"));
+    console.log(questions)
+})
+document.getElementById("confirmYes").addEventListener("click", function() {
+    hideElements(document.querySelector(".confirm"));
     for (var i = 0; i < questions.length; i++) {
         var div = document.createElement("div");
         var questionAndAnswer = [questions[i].question + questions[i].response];
@@ -110,6 +115,10 @@ Submit.addEventListener("click", function(){
     hideElements(questionBox)
     showElements(reStart)
 })
+document.getElementById("confirmNo").addEventListener("click", function() {
+    hideElements(document.querySelector(".confirm"));
+})
+
 
 box.addEventListener("keydown", function(e){
     if(e.which == 13) {
@@ -118,6 +127,7 @@ box.addEventListener("keydown", function(e){
     }
 })
 
+/*
 reStart.addEventListener("click", function(){
     showElements(box)
     hideElements(result)
@@ -126,3 +136,4 @@ reStart.addEventListener("click", function(){
 
 
 
+*/
