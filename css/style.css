@@ -59,6 +59,15 @@ h1{
     font-size: 30px;
     text-shadow: 1px 1px 1px #767a10;
 }
+h3{
+    margin: 0;
+}
+.info-user{
+    margin: 0.5rem 0 1rem;
+}
+.info-user span{
+    margin: auto 0;
+}
 .input-group{
     display: flex;
     flex-direction: column;

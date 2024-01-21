@@ -127,13 +127,8 @@ box.addEventListener("keydown", function(e){
     }
 })
 
-/*
+
 reStart.addEventListener("click", function(){
     showElements(box)
     hideElements(result)
 })
-
-
-
-
-*/
